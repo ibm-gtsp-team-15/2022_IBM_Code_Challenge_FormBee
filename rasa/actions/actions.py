@@ -7,6 +7,42 @@ from rasa_sdk.events import SlotSet, FollowupAction
 import requests
 import json
 
+
+class ActionFillFormSlot(Action):
+
+    def name(self) -> Text:
+        return 'action_fill_form_slot'
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        events = []
+
+        formAnswer = next(tracker.get_latest_entity_values('form_answer'), None)
+        currentlyFillingForm = MyForm.fromBotSlot(tracker.get_slot('currently_filling_form'))
+
+        if (formAnswer is not None 
+        and currentlyFillingForm is not None 
+        and not currentlyFillingForm.isFilled()):
+
+            answer = formAnswer.split('f:')[1]
+            name = currentlyFillingForm.getCurrentSlot().name
+            dispatcher.utter_message(f'Your answer for {name}: {answer}')
+
+            currentlyFillingForm.answer(answer)
+            events.append(SlotSet('currently_filling_form', currentlyFillingForm))
+
+            if (currentlyFillingForm.isFilled()):
+                currentlyFillingForm.save(tracker.get_slot('user_email'))
+            else:
+                dispatcher.utter_message(f'Please enter {currentlyFillingForm.getCurrentSlot().name}')
+        else:
+            dispatcher.utter_message(response = 'utter_no_active_form')
+
+        return events
+
+
 class MyFormSlot:
 
     def __init__(self, name: str, type: str, regex: str, value) -> None:
