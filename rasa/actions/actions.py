@@ -7,6 +7,35 @@ from rasa_sdk.events import SlotSet, FollowupAction
 import requests
 import json
 
+class ActionSelectTemplate(Action):
+
+    def name(self) -> Text:
+        return 'action_select_template'
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        formTemplates = tracker.get_slot('form_templates')
+        docId = next(tracker.get_latest_entity_values('firestore_doc_id'), None)
+        events = []
+        
+        if docId is not None:
+            selectedTemplate = formTemplates[docId]
+            currentlyFillingForm: MyForm = MyForm.fromTemplateMap(selectedTemplate)
+
+            events.append(SlotSet('selected_template', selectedTemplate))
+            events.append(SlotSet('currently_filling_form', currentlyFillingForm))
+            
+            dispatcher.utter_message(f'You chose: {currentlyFillingForm.name}')
+            dispatcher.utter_message(f'Please enter {currentlyFillingForm.getCurrentSlot().name}')
+        else:
+            events.append(SlotSet('selected_template', None))
+            events.append(SlotSet('currently_filling_form', None))
+
+            dispatcher.utter_message('Please choose a form to start.')
+
+        return events
 
 class ActionFillFormSlot(Action):
 
