@@ -1,0 +1,60 @@
+version: "3.1"
+
+stories:
+    - story: template selection by greeting (when email is already set)
+      steps:
+          - intent: greet
+          - action: utter_greet
+          - action: utter_can_i_help
+          - intent: affirm
+          - slot_was_set:
+                - user_email
+          - action: utter_show_inventory
+          - action: action_fetch_inventory
+          - intent: select_template
+          - action: action_select_template
+
+    - story: template selection by greeting (when email is not set)
+      steps:
+          - intent: greet
+          - action: utter_greet
+          - action: utter_can_i_help
+          - intent: affirm
+          - slot_was_set:
+                - user_email: null
+          - action: utter_please_provide_email
+          - intent: mention_email
+          - action: utter_show_inventory
+          - action: action_fetch_inventory
+          - intent: select_template
+          - action: action_select_template
+
+    - story: direct template selection (when email is already set)
+      steps:
+          - intent: avail_service
+          - slot_was_set:
+                - user_email
+          - action: utter_show_inventory
+          - action: action_fetch_inventory
+          - intent: select_template
+          - action: action_select_template
+
+    - story: direct template selection (when email is not set)
+      steps:
+          - intent: avail_service
+          - slot_was_set:
+                - user_email: null
+          - action: utter_please_provide_email
+          - intent: mention_email
+          - action: utter_show_inventory
+          - action: action_fetch_inventory
+          - intent: select_template
+          - action: action_select_template
+
+    - story: template rejection
+      steps:
+          - intent: greet
+          - action: utter_greet
+          - action: utter_can_i_help
+          - intent: deny
+          - action: utter_goodbye

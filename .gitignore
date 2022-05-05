@@ -102,3 +102,10 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Rasa
+rasa/.rasa/
+rasa/actions/__pycache__/
+
+#keys
+backend/keys

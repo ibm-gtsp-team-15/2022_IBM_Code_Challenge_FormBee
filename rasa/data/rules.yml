@@ -1,0 +1,23 @@
+version: "3.1"
+
+rules:
+    - rule: Say goodbye anytime the user says goodbye
+      steps:
+          - intent: goodbye
+          - action: utter_goodbye
+
+    - rule: Introduce myself anytime the user challenges
+      steps:
+          - intent: bot_challenge
+          - action: utter_introduction
+          - action: utter_can_i_help
+
+    - rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+      steps:
+          - intent: nlu_fallback
+          - action: utter_please_rephrase
+
+    - rule: Whenever the user answers a form question, start action_fill_form_slot
+      steps:
+          - intent: answer_form
+          - action: action_fill_form_slot

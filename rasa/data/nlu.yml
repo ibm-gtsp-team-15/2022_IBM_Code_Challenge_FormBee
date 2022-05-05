@@ -1,0 +1,116 @@
+version: "3.1"
+
+nlu:
+    - intent: greet
+      examples: |
+          - hey
+          - hello
+          - hi
+          - hello there
+          - good morning
+          - good evening
+          - moin
+          - hey there
+          - let's go
+          - hey dude
+          - goodmorning
+          - goodevening
+          - good afternoon
+
+    - intent: goodbye
+      examples: |
+          - cu
+          - good by
+          - cee you later
+          - good night
+          - bye
+          - goodbye
+          - have a nice day
+          - see you around
+          - bye bye
+          - see you later
+
+    - intent: affirm
+      examples: |
+          - yes
+          - y
+          - indeed
+          - of course
+          - that sounds good
+          - correct
+
+    - intent: deny
+      examples: |
+          - no
+          - n
+          - never
+          - I don't think so
+          - don't like that
+          - no way
+          - not really
+
+    - intent: avail_service
+      examples: |
+          - I want to fill forms
+          - help me
+          - fill forms
+          - take survey
+          - show me your forms
+          - show me what you got
+          - do you have any forms or surveys?
+          - got anything for me?
+
+    - intent: bot_challenge
+      examples: |
+          - who are you?
+          - what are you?
+          - what do you do?
+          - what is this?
+          - what do you provide?
+          - how can you serve me?
+          - are you a bot?
+          - are you a human?
+          - am I talking to a bot?
+          - am I talking to a human?
+
+    - regex: firestore_doc_id
+      examples: |
+          - (?!\.\.?$)(?!.*__.*__)([^/]{20})
+
+    - regex: form_answer
+      examples: |
+          - (f\:.*)
+
+    - regex: email
+      examples: |
+          - (([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))
+
+    - intent: select_template
+      examples: |
+          - [xdNScjwKA6D3ocPNLcmP](firestore_doc_id)
+          - [oiVxMMV940VlIRwDJrud](firestore_doc_id)
+
+    - intent: answer_form
+      examples: |
+          - [f:12345](form_answer)
+          - [f:kerala](form_answer)
+          - [f:not applicable](form_answer)
+          - [f:N/A](form_answer)
+          - [f:married](form_answer)
+          - [f:i would rather not say](form_answer)
+          - [f:test@gmail.com](form_answer)
+          - [f:jhp@gmail.com](form_answer)
+          - [f:biscuits](form_answer)
+          - [f:the fox jumped over the iron gate to find berries](form_answer)
+          - [f:hello world](form_answer)
+          - [f:hello world! what is going on? nice to meet you](form_answer)
+
+    - intent: mention_email
+      examples: |
+          - my email is: [test@gmail.com](email)
+          - my email is:[jj.1234@gmail.com](email)
+          - [dbz@xyz.com](email) is my email address
+          - sure, [abcd123@hotmail.com](email)
+          - [xyzabc@hhh.com](email)
+          - [c12.asdf@jjp.edu](email)
+          - my email is [salsa@sushi.com](email)
