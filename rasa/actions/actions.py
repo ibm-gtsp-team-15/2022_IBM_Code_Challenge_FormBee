@@ -7,6 +7,38 @@ from rasa_sdk.events import SlotSet, FollowupAction
 import requests
 import json
 
+
+class ActionFetchInventory(Action):
+
+    def name(self) -> Text:
+        return 'action_fetch_inventory'
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        response = requests.get('http://localhost:3000/forms/inventory')
+        buttons = []
+        events = []
+        msg = 'I\'m unable to contact the server right now. Please try again later.'
+
+        if response.ok:
+            formTemplates = json.loads(response.content)
+            msg = 'Here is my inventory. Please select a form:\n'
+
+            formTemplatesDict = {}
+            for template in formTemplates:
+                formTemplatesDict[template['templateId']] = template
+                buttons.append({
+                    'title': template['name'], 
+                    'payload': '/select_template{"firestore_doc_id":"' + template['templateId'] + '"}'
+                })
+            events.append(SlotSet('form_templates', formTemplatesDict))
+                
+        dispatcher.utter_message(text=msg, buttons=buttons)
+        return events
+
+
 class ActionSelectTemplate(Action):
 
     def name(self) -> Text:
