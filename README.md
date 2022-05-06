@@ -40,8 +40,8 @@
     </ol>
   
 
-<h1>Video</h1>
-<iframe width="960" height="563" src="https://www.youtube.com/embed/1GOBrDdNPEQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h1>Working Demo Video</h1>
+[![Working Demo Video](https://img.youtube.com/vi/1GOBrDdNPEQ/0.jpg)](https://www.youtube.com/watch?v=1GOBrDdNPEQ)
 
 <h2>Explanation videos</h2>
 > Frontend and ActionSelectTemplate
