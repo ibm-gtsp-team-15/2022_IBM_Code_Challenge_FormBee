@@ -10,7 +10,7 @@
 <h1>Architecture</h1>
 <img src="architecture.png"></img>
 
-<h1>Techical stack</h1>
+<h1>Technical stack</h1>
 <h5>Frontend</h5>
 <ol>
     <li>Bootstrap : Landing page creation</li>
