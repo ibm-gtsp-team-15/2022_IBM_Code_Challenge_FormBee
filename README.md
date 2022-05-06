@@ -7,6 +7,14 @@
 
 <h1>Personas of the system</h1>
 
+<p>
+    Consider a normal citizen , they can interact with this chatbot to fill government forms they don't have to go anywhere else.
+    
+    usecases : Form filling 
+               printing and exporting filled forms
+               viewing and managing forms
+    </p>
+
 <h1>Architecture</h1>
 <img src="architecture.png"></img>
 
