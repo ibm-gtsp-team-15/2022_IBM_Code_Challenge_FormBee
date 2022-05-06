@@ -1,0 +1,117 @@
+version: "3.1"
+
+intents:
+    - greet
+    - goodbye
+    - affirm
+    - deny
+    - avail_service
+    - bot_challenge
+    - select_template:
+          use_entities:
+              - firestore_doc_id
+    - answer_form:
+          use_entities:
+              - form_answer
+    - mention_email:
+          use_entities:
+              - email
+    - form_query
+
+entities:
+    - firestore_doc_id
+    - form_answer
+    - email
+
+slots:
+    form_templates:
+        type: any
+        influence_conversation: false
+        mappings:
+            - type: custom
+              action: action_fetch_inventory
+    selected_template:
+        type: any
+        influence_conversation: false
+        mappings:
+            - type: custom
+    currently_filling_form:
+        type: any
+        influence_conversation: false
+        mappings:
+            - type: custom
+    user_email:
+        type: text
+        influence_conversation: true
+        mappings:
+            - type: from_entity
+              entity: email
+
+actions:
+    - action_fetch_inventory
+    - action_select_template
+    - action_fill_form_slot
+    - action_search_field
+
+responses:
+    utter_please_rephrase:
+        - text: "Sorry, I didn't get that. Could you please rephrase?"
+        - text: "Sorry, that was unclear. Could you please repeat that?"
+
+    utter_greet:
+        - text: "Hey! How are you?"
+        - text: "Hello! Nice to meet you!"
+        - text: "Hi! Hope you are doing well."
+
+    utter_goodbye:
+        - text: "Goodbye, see you later!"
+        - text: "Okay, bye!"
+        - text: "Have a nice rest of the day."
+
+    utter_introduction:
+        - text: >
+              Hello, I am FormBee. I'm an AI-powered chatbot that can help you find
+              and fill out government surveys and forms. Would you like to browse
+              through the available options?
+
+    utter_can_i_help:
+        - text: "Would you like to browse my catalog?"
+          buttons:
+              - title: "Yes"
+                payload: "/affirm"
+              - title: "No"
+                payload: "/deny"
+        - text: "Do you want to fill some forms?"
+          buttons:
+              - title: "Yes"
+                payload: "/affirm"
+              - title: "No"
+                payload: "/deny"
+
+    utter_show_inventory:
+        - text: "Here are the forms/surveys that I have as of now."
+
+    utter_no_active_form:
+        - text: "There's no form active right now. Would you like to see my inventory?"
+          buttons:
+              - title: "Yes"
+                payload: "/avail_service"
+              - title: "No"
+                payload: "/goodbye"
+
+    utter_please_provide_email:
+        - text: "Before we start, please provide your email."
+        - text: "Please enter your email before we start."
+        - text: "Please tell me your email address so I can continue."
+
+    utter_thank_you:
+        - text: |
+              That's it! You're all done. Thank you for your cooperation.
+              I will send you a PDF of the form in a few minutes. Please wait.
+        - text: |
+              With that, the form is filled. Thank you.
+              I will send you the PDF in a few.
+
+session_config:
+    session_expiration_time: 240
+    carry_over_slots_to_new_session: true
