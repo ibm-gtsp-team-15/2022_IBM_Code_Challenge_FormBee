@@ -8,6 +8,7 @@
 <h1>Personas of the system</h1>
 
 <h1>Architecture</h1>
+<img src=""></img>
 
 <h1>Video</h1>
 
