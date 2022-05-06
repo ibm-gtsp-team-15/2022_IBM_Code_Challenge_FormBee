@@ -106,6 +106,7 @@ dist
 # Rasa
 rasa/.rasa/
 rasa/actions/__pycache__/
+rasa_chatroom/hjk
 
 #keys
 backend/keys

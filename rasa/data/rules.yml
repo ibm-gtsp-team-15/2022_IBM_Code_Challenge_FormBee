@@ -21,3 +21,8 @@ rules:
       steps:
           - intent: answer_form
           - action: action_fill_form_slot
+
+    - rule: Whenever the user asks about a field, search it
+      steps:
+          - intent: form_query
+          - action: action_search_field

@@ -114,3 +114,13 @@ nlu:
           - [xyzabc@hhh.com](email)
           - [c12.asdf@jjp.edu](email)
           - my email is [salsa@sushi.com](email)
+
+    - intent: form_query
+      examples: |
+          - sorry, I don't know that field
+          - i don't understand
+          - i did not get that
+          - what is that?
+          - what does that mean?
+          - do you know what that is?
+          - i don't know how to answer that

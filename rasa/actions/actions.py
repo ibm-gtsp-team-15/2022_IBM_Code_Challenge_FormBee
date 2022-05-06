@@ -7,6 +7,10 @@ from rasa_sdk.events import SlotSet, FollowupAction
 import requests
 import json
 
+import sys
+sys.path.insert(1, 'actions/')
+
+import search
 
 class ActionFetchInventory(Action):
 
@@ -89,20 +93,44 @@ class ActionFillFormSlot(Action):
 
             answer = formAnswer.split('f:')[1]
             name = currentlyFillingForm.getCurrentSlot().name
-            dispatcher.utter_message(f'Your answer for {name}: {answer}')
+            dispatcher.utter_message(f'Your answer for {fieldNameToLegibleText(name)}: {answer}')
 
             currentlyFillingForm.answer(answer)
             events.append(SlotSet('currently_filling_form', currentlyFillingForm))
 
             if (currentlyFillingForm.isFilled()):
                 currentlyFillingForm.save(tracker.get_slot('user_email'))
+                dispatcher.utter_message(response = 'utter_thank_you')
             else:
-                dispatcher.utter_message(f'Please enter {currentlyFillingForm.getCurrentSlot().name}')
+                dispatcher.utter_message(f'Please enter {fieldNameToLegibleText(currentlyFillingForm.getCurrentSlot().name)}')
         else:
             dispatcher.utter_message(response = 'utter_no_active_form')
 
         return events
 
+class ActionSearchField(Action):
+
+    def name(self) -> Text:
+        return 'action_search_field'
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        events = []
+        currentlyFillingForm = MyForm.fromBotSlot(tracker.get_slot('currently_filling_form'))
+        currentSlot: MyFormSlot = currentlyFillingForm.getCurrentSlot()
+
+        if currentlyFillingForm is not None:
+            answer = search.Googlesearch(f'what is {currentSlot.name}')
+            dispatcher.utter_message(text = answer)
+        else:
+            dispatcher.utter_message("Sorry. I can't process what you said.")
+
+        return events
+
+def fieldNameToLegibleText(fieldName: Text) -> Text:
+    return fieldName.replace('_', ' ')
 
 class MyFormSlot:
 
@@ -120,7 +148,6 @@ class MyFormSlot:
             obj.get('regex'),
             obj.get('value')
         )
-
 
     @staticmethod
     def toMap(myFormSlot: 'MyFormSlot') -> Dict[Text, Any]:
@@ -142,7 +169,6 @@ class MyForm:
 
     @staticmethod
     def fromTemplateMap(obj) -> 'MyForm':
-        print(obj)
         return MyForm(
             obj.get('templateId'),
             obj.get('name'),
