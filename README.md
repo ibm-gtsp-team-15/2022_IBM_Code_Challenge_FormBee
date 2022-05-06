@@ -55,7 +55,7 @@
 <h1>License &amp acknowledgement</h1>
 
 <P>
-    GNU 
+    <b>GNU General Public License v3.0</b>
     </P>
 <p>
     We would like to thank our mentors Manoj Jain and Ayush Utkarsh for helping us throughout this hackathon.They have helped us to clear our doubts reagrding the stacks in which we worked.Once again thanking their guidance in this hackathon.
