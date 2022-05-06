@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormBee</title>
+    <link rel="stylesheet" href="../rasa_chatroom/dist/Chatroom.css">
+</head>
+<body>
+    <div class="chat-container"></div>
+
+    <script src="../rasa_chatroom/dist/Chatroom.js"/></script>
+    <script type="text/javascript">
+        var chatroom = new window.Chatroom({
+            host: "http://localhost:5005",
+            title: "Chat with FormBee",
+            container: document.querySelector(".chat-container"),
+            welcomeMessage: "Hi, I am FormBee.\nWelcome to our platform that helps you fill government forms and surveys all in one place.\nYou can start talking to me by saying hello :)",
+            speechRecognition: "en-US",
+            voiceLang: "en-US"
+        });
+        chatroom.openChat();
+    </script>
+</body>
+</html>
