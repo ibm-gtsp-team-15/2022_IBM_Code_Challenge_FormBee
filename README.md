@@ -13,8 +13,18 @@
 <h1>Techical stack</h1>
 <h5>Frontend</h5>
 <ol>
-    <li>Bootstrap : Landing page creation<li>
+    <li>Bootstrap : Landing page creation</li>
     <li>React Webapp : Chatroom creation</li>
+    </ol>
+    
+<h5>Middlewarre</h5>
+<ol>
+    <li>Rasa : For chatbot creation </li>
+</ol>
+
+<h5>Backend </h5>
+<ol>
+    <li> Nodejs with Firebase as storage</li>
     </ol>
   
 
