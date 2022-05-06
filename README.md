@@ -12,12 +12,10 @@
 </p>
 
 <h5> Usecases</h5>
-<ol>
-    
+<ol>   
     <li> Form filling </li>
     <li> printing and exporting filled forms</li>
-    <li>viewing and managing forms</li>
-    
+    <li>viewing and managing forms</li>  
    </ol>
   
 
