@@ -44,10 +44,10 @@
 
 [![Working Demo Video](https://img.youtube.com/vi/1GOBrDdNPEQ/0.jpg)](https://www.youtube.com/watch?v=1GOBrDdNPEQ)
 
+## ![Presentation Slide](https://github.com/ibm-gtsp-team-15/2022_IBM_Code_Challenge_FormBee/blob/ace8bf42d13fdb036ad27935f07e45f20278fbb7/FormBee%20Slides.pptx)
+
 <h2>Explanation videos</h2>
 > Frontend and ActionSelectTemplate
-
-## ![Presentation Slide](https://github.com/ibm-gtsp-team-15/2022_IBM_Code_Challenge_FormBee/blob/ace8bf42d13fdb036ad27935f07e45f20278fbb7/FormBee%20Slides.pptx)
 
 [![Frontend and ActionSelectTemplate](https://img.youtube.com/vi/-jTI6Py_hKo/0.jpg)](https://www.youtube.com/watch?v=-jTI6Py_hKo)
 
