@@ -2,8 +2,7 @@
 
 <h1> Problem Statement</h1>
 <p>
-    Digitization of government services directly leads to a significant increase in quantity of digital data and data entry tasks, especially considering current situations. the average layman finds it difficult to manage and fill the various forms and surveys of the government. even tech-savvy people may find it difficult to fill a form instantaneously and may resort to googling for jargons which wastes time.![image](https://user-images.githubusercontent.com/52687370/167077616-87cb1d29-088c-4f5c-9ee4-02c0dfea7b2a.png)
-
+    Digitization of government services directly leads to a significant increase in quantity of digital data and data entry tasks, especially considering current situations. the average layman finds it difficult to manage and fill the various forms and surveys of the government. even tech-savvy people may find it difficult to fill a form instantaneously and may resort to googling for jargons which wastes time.
 </p>
 
 <h1>Personas of the system</h1>
