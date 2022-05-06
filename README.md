@@ -9,11 +9,17 @@
 
 <p>
     Consider a normal citizen , they can interact with this chatbot to fill government forms they don't have to go anywhere else.
+</p>
+
+<h5> Usecases</h5>
+<ol>
     
-    usecases : Form filling 
-               printing and exporting filled forms
-               viewing and managing forms
-    </p>
+    <li> Form filling </li>
+    <li> printing and exporting filled forms</li>
+    <li>viewing and managing forms</li>
+    
+   </ol>
+  
 
 <h1>Architecture</h1>
 <img src="architecture.png"></img>
@@ -37,6 +43,8 @@
   
 
 <h1>Video</h1>
+<iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+      </iframe>
 
 <h1>List of Contributors</h1>
 <ol>
@@ -47,7 +55,11 @@
 </ol>
 
 <h1>License &amp acknoledgement</h1>
-<ol>
-  <li></li>
-  <li></li>
-</ol>
+
+<P>
+    GNU 
+    </P>
+<p>
+    We would like to thank our mentors Manoj Jain and Ayush Utkarsh for helping us throughout this hackathon.They have helped us to clear our doubts reagrding the stacks in which we worked.Once again thanking their guidance in this hackathon.
+    </p>
+    
