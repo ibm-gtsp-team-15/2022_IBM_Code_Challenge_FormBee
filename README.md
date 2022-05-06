@@ -45,13 +45,13 @@
 
 <h2>Explanation videos</h2>
 > Frontend and ActionSelectTemplate
-<iframe width="983" height="553" src="https://www.youtube.com/embed/-jTI6Py_hKo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Frontend and ActionSelectTemplate](https://img.youtube.com/vi/-jTI6Py_hKo/0.jpg)](https://www.youtube.com/watch?v=-jTI6Py_hKo)
 
 > ActionFillFormSlot and Search function
-<iframe width="983" height="555" src="https://www.youtube.com/embed/cwBFQc8Qz78" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![ActionFillFormSlot and Search function](https://img.youtube.com/vi/cwBFQc8Qz78/0.jpg)](https://www.youtube.com/watch?v=cwBFQc8Qz78)
 
 > Backend
-<iframe width="965" height="563" src="https://www.youtube.com/embed/XjhjORGLTfQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Backend](https://img.youtube.com/vi/XjhjORGLTfQ/0.jpg)](https://www.youtube.com/watch?v=XjhjORGLTfQ)
 
 <h1>List of Contributors</h1>
 <ol>
