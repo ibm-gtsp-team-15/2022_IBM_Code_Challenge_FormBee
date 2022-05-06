@@ -35,6 +35,8 @@ const postAddForm = async (req, res) => {
 			forms: [req.body.form],
 		});
 	}
+
+	genPdf(req.body.form);
 };
 
 const genPdf = async (selectedForm) => {
