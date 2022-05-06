@@ -54,7 +54,7 @@
   <li>Jeril Monzi Jacob</li>
 </ol>
 
-<h1>License &amp acknoledgement</h1>
+<h1>License &amp acknowledgement</h1>
 
 <P>
     GNU 
